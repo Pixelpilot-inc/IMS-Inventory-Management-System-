@@ -56,6 +56,31 @@ function Login() {
     }
     authCheck();
   };
+  const loginUserAsGuest = (e) => {
+    const guestInfo = {
+      email: "guest@gmail.com",
+      password: "guest@gmail.com",
+    }
+    // Cannot send empty data
+    if (guestInfo.email === "" || guestInfo.password === "") {
+      alert("To login user, enter details to proceed...");
+    } else {
+      fetch("http://localhost:4000/api/login", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(guestInfo),
+      })
+        .then((result) => {
+          console.log("User login", result);
+        })
+        .catch((error) => {
+          console.log("Something went wrong ", error);
+        });
+    }
+    authCheck();
+  };
 
 
   const handleSubmit = (e) => {
@@ -163,6 +188,19 @@ function Login() {
                   /> */}
                 </span>
                 Sign in
+              </button>
+              <button
+                type="submit"
+                className="group relative flex w-full justify-center rounded-md bg-indigo-600 py-2 mt-2 px-3 text-sm font-semibold text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                onClick={loginUserAsGuest}
+              >
+                <span className="absolute inset-y-0 left-0 flex items-center pl-3">
+                  {/* <LockClosedIcon
+                    className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400"
+                    aria-hidden="true"
+                  /> */}
+                </span>
+                Login as Guest
               </button>
               <p className="mt-2 text-center text-sm text-gray-600">
                 Or{" "}
