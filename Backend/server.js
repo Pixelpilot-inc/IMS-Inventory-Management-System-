@@ -15,6 +15,12 @@ main();
 app.use(express.json());
 app.use(cors());
 
+// test routes
+
+app.get('/', (req, res) => {
+  res.json('Hello');
+})
+
 // Store API
 app.use("/api/store", storeRoute);
 
