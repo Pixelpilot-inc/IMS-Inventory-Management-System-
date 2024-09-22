@@ -8,33 +8,28 @@ const cors = require("cors");
 const User = require("./models/users");
 const Product = require("./models/Product");
 
-
 const app = express();
 const PORT = 4000;
 main();
 
-
 // CORS middleware
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*'); // Allow all origins
-  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  next();
-});
+app.use(cors({
+  origin: "https://ims-api-ten.vercel.app", // Allow the specific origin
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  credentials: true, // Allow sending credentials such as cookies
+  allowedHeaders: ["Content-Type", "Authorization"] // Allow specific headers
+}));
 
+// Automatically handle preflight `OPTIONS` requests
+app.options("*", cors());
+
+// Express JSON middleware
 app.use(express.json());
-app.use(cors(
-  {origin: ["https://ims-api-ten.vercel.app"],
-    methods: ["GET", "POST"],
-    credentials:true
-  }
-));
 
-// test routes
-
+// Test route
 app.get('/', (req, res) => {
   res.json('Hello');
-})
+});
 
 // Store API
 app.use("/api/store", storeRoute);
@@ -50,9 +45,9 @@ app.use("/api/sales", salesRoute);
 
 // ------------- Signin --------------
 let userAuthCheck;
+
 app.post("/api/login", async (req, res) => {
   console.log(req.body);
-  // res.send("hi");
   try {
     const user = await User.findOne({
       email: req.body.email,
@@ -68,14 +63,19 @@ app.post("/api/login", async (req, res) => {
     }
   } catch (error) {
     console.log(error);
-    res.send(error);
+    res.status(500).send("Server Error");
   }
 });
 
 // Getting User Details of login user
 app.get("/api/login", (req, res) => {
-  res.send(userAuthCheck);
+  if (userAuthCheck) {
+    res.send(userAuthCheck);
+  } else {
+    res.status(401).send("User not authenticated");
+  }
 });
+
 // ------------------------------------
 
 // Registration API
@@ -93,20 +93,21 @@ app.post("/api/register", (req, res) => {
     .save()
     .then((result) => {
       res.status(200).send(result);
-      alert("Signup Successfull");
     })
-    .catch((err) => console.log("Signup: ", err));
+    .catch((err) => {
+      console.log("Signup: ", err);
+      res.status(500).send("Signup failed");
+    });
   console.log("request: ", req.body);
 });
 
-
-app.get("/testget", async (req,res)=>{
-  const result = await Product.findOne({ _id: '6429979b2e5434138eda1564'})
-  res.json(result)
-
-})
+// Test Product Route
+app.get("/testget", async (req, res) => {
+  const result = await Product.findOne({ _id: '6429979b2e5434138eda1564' });
+  res.json(result);
+});
 
 // Here we are listening to the server
 app.listen(PORT, () => {
-  console.log("I am live again");
+  console.log(`Server running on port ${PORT}`);
 });

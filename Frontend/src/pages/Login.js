@@ -2,6 +2,7 @@
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import AuthContext from "../AuthContext";
+import axios from 'axios';
 
 function Login() {
   const [form, setForm] = useState({
@@ -16,79 +17,142 @@ function Login() {
   const handleInputChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
-
   const authCheck = () => {
     setTimeout(() => {
-      fetch("https://ims-api-ten.vercel.app/api/login", {
-        method: "POST",
-        credentials: 'include',
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify(form),
-      })
-        .then((response) => response.json())
-        .then((data) => {
+      axios.post(
+        "https://ims-api-ten.vercel.app/api/login",
+        form,
+        { withCredentials: true }
+      )
+        .then((response) => {
           alert("Successfully Login");
-          localStorage.setItem("user", JSON.stringify(data));
-          authContext.signin(data._id, () => {
+          localStorage.setItem("user", JSON.stringify(response.data));
+          authContext.signin(response.data._id, () => {
             navigate("/");
           });
         })
         .catch((err) => {
-          alert("Wrong credentials, Try again")
+          alert("Wrong credentials, Try again");
           console.log(err);
         });
     }, 3000);
   };
 
+
   const loginUser = (e) => {
-    // Cannot send empty data
     if (form.email === "" || form.password === "") {
       alert("To login user, enter details to proceed...");
     } else {
-      fetch("https://ims-api-ten.vercel.app/api/login", {
-        method: "POST",
-        credentials: 'include',
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify(form),
-      })
+      axios.post(
+        "https://ims-api-ten.vercel.app/api/login",
+        form,
+        { withCredentials: true }
+      )
         .then((result) => {
           console.log("User login", result);
         })
         .catch((error) => {
-          console.log("Something went wrong ", error);
+          console.log("Something went wrong", error);
         });
     }
     authCheck();
   };
+
   const loginUserAsGuest = (e) => {
     const guestInfo = {
       email: "guest@gmail.com",
       password: "guest@gmail.com",
-    }
-    // Cannot send empty data
+    };
+
     if (guestInfo.email === "" || guestInfo.password === "") {
       alert("To login user, enter details to proceed...");
     } else {
-      fetch("https://ims-api-ten.vercel.app/api/login", {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify(guestInfo),
-      })
+      axios.post(
+        "https://ims-api-ten.vercel.app/api/login",
+        guestInfo,
+        { withCredentials: true }
+      )
         .then((result) => {
           console.log("User login", result);
         })
         .catch((error) => {
-          console.log("Something went wrong ", error);
+          console.log("Something went wrong", error);
         });
     }
     authCheck();
   };
+  // const authCheck = () => {
+  //   setTimeout(() => {
+  //     fetch("https://ims-api-ten.vercel.app/api/login", {
+  //       method: "POST",
+  //       credentials: 'include',
+  //       headers: {
+  //         "Content-type": "application/json",
+  //       },
+  //       body: JSON.stringify(form),
+  //     })
+  //       .then((response) => response.json())
+  //       .then((data) => {
+  //         alert("Successfully Login");
+  //         localStorage.setItem("user", JSON.stringify(data));
+  //         authContext.signin(data._id, () => {
+  //           navigate("/");
+  //         });
+  //       })
+  //       .catch((err) => {
+  //         alert("Wrong credentials, Try again")
+  //         console.log(err);
+  //       });
+  //   }, 3000);
+  // };
+
+  // const loginUser = (e) => {
+  //   // Cannot send empty data
+  //   if (form.email === "" || form.password === "") {
+  //     alert("To login user, enter details to proceed...");
+  //   } else {
+  //     fetch("https://ims-api-ten.vercel.app/api/login", {
+  //       method: "POST",
+  //       credentials: 'include',
+  //       headers: {
+  //         "Content-type": "application/json",
+  //       },
+  //       body: JSON.stringify(form),
+  //     })
+  //       .then((result) => {
+  //         console.log("User login", result);
+  //       })
+  //       .catch((error) => {
+  //         console.log("Something went wrong ", error);
+  //       });
+  //   }
+  //   authCheck();
+  // };
+  // const loginUserAsGuest = (e) => {
+  //   const guestInfo = {
+  //     email: "guest@gmail.com",
+  //     password: "guest@gmail.com",
+  //   }
+  //   // Cannot send empty data
+  //   if (guestInfo.email === "" || guestInfo.password === "") {
+  //     alert("To login user, enter details to proceed...");
+  //   } else {
+  //     fetch("https://ims-api-ten.vercel.app/api/login", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-type": "application/json",
+  //       },
+  //       body: JSON.stringify(guestInfo),
+  //     })
+  //       .then((result) => {
+  //         console.log("User login", result);
+  //       })
+  //       .catch((error) => {
+  //         console.log("Something went wrong ", error);
+  //       });
+  //   }
+  //   authCheck();
+  // };
 
 
   const handleSubmit = (e) => {

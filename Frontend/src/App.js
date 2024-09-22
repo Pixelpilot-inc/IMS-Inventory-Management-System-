@@ -19,7 +19,7 @@ const App = () => {
   const [loader, setLoader] = useState(true);
   let myLoginUser = JSON.parse(localStorage.getItem("user"));
   // console.log("USER: ",user)
-  // axios.defaults.withCredentials = true;
+  axios.defaults.withCredentials = true;
   useEffect(() => {
     if (myLoginUser) {
       setUser(myLoginUser._id);
