@@ -16,5 +16,5 @@ module.exports = app;
 
 
 
-// http://localhost:4000/api/sales/add POST
-// http://localhost:4000/api/sales/get GET
+// https://ims-api-ten.vercel.app/api/sales/add POST
+// https://ims-api-ten.vercel.app/api/sales/get GET

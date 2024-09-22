@@ -19,7 +19,14 @@ function Login() {
 
   const authCheck = () => {
     setTimeout(() => {
-      fetch("http://localhost:4000/api/login")
+      fetch("https://ims-api-ten.vercel.app/api/login", {
+        method: "POST",
+        credentials: 'include',
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(form),
+      })
         .then((response) => response.json())
         .then((data) => {
           alert("Successfully Login");
@@ -40,8 +47,9 @@ function Login() {
     if (form.email === "" || form.password === "") {
       alert("To login user, enter details to proceed...");
     } else {
-      fetch("http://localhost:4000/api/login", {
+      fetch("https://ims-api-ten.vercel.app/api/login", {
         method: "POST",
+        credentials: 'include',
         headers: {
           "Content-type": "application/json",
         },
@@ -65,7 +73,7 @@ function Login() {
     if (guestInfo.email === "" || guestInfo.password === "") {
       alert("To login user, enter details to proceed...");
     } else {
-      fetch("http://localhost:4000/api/login", {
+      fetch("https://ims-api-ten.vercel.app/api/login", {
         method: "POST",
         headers: {
           "Content-type": "application/json",

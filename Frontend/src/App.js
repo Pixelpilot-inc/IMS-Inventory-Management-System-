@@ -13,13 +13,13 @@ import { useEffect, useState } from "react";
 import Store from "./pages/Store";
 import Sales from "./pages/Sales";
 import PurchaseDetails from "./pages/PurchaseDetails";
-
+import axios from "axios";
 const App = () => {
   const [user, setUser] = useState("");
   const [loader, setLoader] = useState(true);
   let myLoginUser = JSON.parse(localStorage.getItem("user"));
   // console.log("USER: ",user)
-
+  // axios.defaults.withCredentials = true;
   useEffect(() => {
     if (myLoginUser) {
       setUser(myLoginUser._id);
