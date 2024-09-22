@@ -13,7 +13,12 @@ const app = express();
 const PORT = 4000;
 main();
 app.use(express.json());
-app.use(cors());
+app.use(cors(
+  {origin: ["http://localhost:", "https://ims-api-ten.vercel.app"],
+    methods: ["GET", "POST"],
+    credentials:true
+  }
+));
 
 // test routes
 
