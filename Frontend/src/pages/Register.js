@@ -21,7 +21,7 @@ function Register() {
 
   // Register User
   const registerUser = () => {
-    fetch("https://ims-api-ten.vercel.app/api/register", {
+    fetch("https://ims-api-beige.vercel.app/api/register", {
       method: "POST",
       headers: {
         "Content-type": "application/json",

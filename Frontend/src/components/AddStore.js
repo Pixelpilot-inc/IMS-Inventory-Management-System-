@@ -23,7 +23,7 @@ export default function AddStore() {
   const cancelButtonRef = useRef(null);
 
   const addProduct = () => {
-    fetch("https://ims-api-ten.vercel.app/api/store/add", {
+    fetch("https://ims-api-beige.vercel.app/api/store/add", {
       method: "POST",
       headers: {
         "Content-type": "application/json",

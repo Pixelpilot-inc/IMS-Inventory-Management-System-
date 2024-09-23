@@ -19,7 +19,7 @@ function Sales() {
 
   // Fetching Data of All Sales
   const fetchSalesData = () => {
-    fetch(`https://ims-api-ten.vercel.app/api/sales/get/${authContext.user}`)
+    fetch(`https://ims-api-beige.vercel.app/api/sales/get/${authContext.user}`)
       .then((response) => response.json())
       .then((data) => {
         setAllSalesData(data);
@@ -29,7 +29,7 @@ function Sales() {
 
   // Fetching Data of All Products
   const fetchProductsData = () => {
-    fetch(`https://ims-api-ten.vercel.app/api/product/get/${authContext.user}`)
+    fetch(`https://ims-api-beige.vercel.app/api/product/get/${authContext.user}`)
       .then((response) => response.json())
       .then((data) => {
         setAllProducts(data);
@@ -39,7 +39,7 @@ function Sales() {
 
   // Fetching Data of All Stores
   const fetchStoresData = () => {
-    fetch(`https://ims-api-ten.vercel.app/api/store/get/${authContext.user}`)
+    fetch(`https://ims-api-beige.vercel.app/api/store/get/${authContext.user}`)
       .then((response) => response.json())
       .then((data) => {
         setAllStores(data);

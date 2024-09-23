@@ -22,7 +22,7 @@ export default function UpdateProduct({
   };
 
   const updateProduct = () => {
-    fetch("https://ims-api-ten.vercel.app/api/product/update", {
+    fetch("https://ims-api-beige.vercel.app/api/product/update", {
       method: "POST",
       headers: {
         "Content-type": "application/json",

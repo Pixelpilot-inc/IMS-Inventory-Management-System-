@@ -28,7 +28,7 @@ export default function AddSale({
 
   // POST Data
   const addSale = () => {
-    fetch("https://ims-api-ten.vercel.app/api/sales/add", {
+    fetch("https://ims-api-beige.vercel.app/api/sales/add", {
       method: "POST",
       headers: {
         "Content-type": "application/json",

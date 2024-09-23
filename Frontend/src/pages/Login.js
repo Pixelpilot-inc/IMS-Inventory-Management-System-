@@ -20,7 +20,7 @@ function Login() {
   const authCheck = () => {
     setTimeout(() => {
       axios.post(
-        "https://ims-api-ten.vercel.app/api/login",
+        "https://ims-api-beige.vercel.app/api/login",
         form,
         { withCredentials: true }
       )
@@ -44,7 +44,7 @@ function Login() {
       alert("To login user, enter details to proceed...");
     } else {
       axios.post(
-        "https://ims-api-ten.vercel.app/api/login",
+        "https://ims-api-beige.vercel.app/api/login",
         form,
         { withCredentials: true }
       )
@@ -68,7 +68,7 @@ function Login() {
       alert("To login user, enter details to proceed...");
     } else {
       axios.post(
-        "https://ims-api-ten.vercel.app/api/login",
+        "https://ims-api-beige.vercel.app/api/login",
         guestInfo,
         { withCredentials: true }
       )
@@ -83,7 +83,7 @@ function Login() {
   };
   // const authCheck = () => {
   //   setTimeout(() => {
-  //     fetch("https://ims-api-ten.vercel.app/api/login", {
+  //     fetch("https://ims-api-beige.vercel.app/api/login", {
   //       method: "POST",
   //       credentials: 'include',
   //       headers: {
@@ -111,7 +111,7 @@ function Login() {
   //   if (form.email === "" || form.password === "") {
   //     alert("To login user, enter details to proceed...");
   //   } else {
-  //     fetch("https://ims-api-ten.vercel.app/api/login", {
+  //     fetch("https://ims-api-beige.vercel.app/api/login", {
   //       method: "POST",
   //       credentials: 'include',
   //       headers: {
@@ -137,7 +137,7 @@ function Login() {
   //   if (guestInfo.email === "" || guestInfo.password === "") {
   //     alert("To login user, enter details to proceed...");
   //   } else {
-  //     fetch("https://ims-api-ten.vercel.app/api/login", {
+  //     fetch("https://ims-api-beige.vercel.app/api/login", {
   //       method: "POST",
   //       headers: {
   //         "Content-type": "application/json",

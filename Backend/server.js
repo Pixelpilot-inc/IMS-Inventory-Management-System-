@@ -14,7 +14,7 @@ main();
 
 // CORS middleware
 app.use(cors({
-  origin: "https://ims-api-ten.vercel.app", // Allow the specific origin
+  origin: "https://k85rrkfl-3001.inc1.devtunnels.ms/", // Allow the specific origin
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   credentials: true, // Allow sending credentials such as cookies
   allowedHeaders: ["Content-Type", "Authorization"] // Allow specific headers

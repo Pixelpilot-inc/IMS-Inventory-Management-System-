@@ -23,7 +23,7 @@ export default function AddProduct({
   };
 
   const addProduct = () => {
-    fetch("https://ims-api-ten.vercel.app/api/product/add", {
+    fetch("https://ims-api-beige.vercel.app/api/product/add", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
