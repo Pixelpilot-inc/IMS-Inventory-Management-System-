@@ -59,7 +59,7 @@ const App = () => {
 
   return (
     <AuthContext.Provider value={value}>
-      <BrowserRouter>
+      <BrowserRouter basename="/IMS-Inventory-Management-System-">
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
