@@ -57,7 +57,7 @@ function Sales() {
   };
 
   return (
-    <div className="col-span-12 lg:col-span-10  flex justify-center">
+    <div className="col-span-12 lg:col-span-10  flex justify-center py-5">
       <div className=" flex flex-col gap-5 w-11/12">
         {showSaleModal && (
           <AddSale
@@ -69,8 +69,8 @@ function Sales() {
           />
         )}
         {/* Table  */}
-        <div className="overflow-x-auto rounded-lg border bg-white border-gray-200 ">
-          <div className="flex justify-between pt-5 pb-3 px-3">
+        <div className="overflow-x-auto rounded-lg border bg-white border-gray-200 py-5 px-2">
+          <div className="flex justify-between pb-3 px-3">
             <div className="flex gap-4 justify-center items-center ">
               <span className="font-bold">Sales</span>
             </div>
