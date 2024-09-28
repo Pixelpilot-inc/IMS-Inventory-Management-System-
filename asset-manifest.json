@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/IMS-Inventory-Management-System-/static/css/main.f78c5376.css",
-    "main.js": "/IMS-Inventory-Management-System-/static/js/main.6bc4e699.js",
+    "main.css": "/IMS-Inventory-Management-System-/static/css/main.06077acd.css",
+    "main.js": "/IMS-Inventory-Management-System-/static/js/main.1db3c962.js",
     "static/js/787.47855dff.chunk.js": "/IMS-Inventory-Management-System-/static/js/787.47855dff.chunk.js",
     "static/media/signup.jpg": "/IMS-Inventory-Management-System-/static/media/signup.f15f90666859b33549cb.jpg",
     "static/media/Login.png": "/IMS-Inventory-Management-System-/static/media/Login.a96deb606c90ef5d6e3e.png",
     "static/media/logo.png": "/IMS-Inventory-Management-System-/static/media/logo.8672361d124cd58f015e.png",
     "index.html": "/IMS-Inventory-Management-System-/index.html",
-    "main.f78c5376.css.map": "/IMS-Inventory-Management-System-/static/css/main.f78c5376.css.map",
-    "main.6bc4e699.js.map": "/IMS-Inventory-Management-System-/static/js/main.6bc4e699.js.map",
+    "main.06077acd.css.map": "/IMS-Inventory-Management-System-/static/css/main.06077acd.css.map",
+    "main.1db3c962.js.map": "/IMS-Inventory-Management-System-/static/js/main.1db3c962.js.map",
     "787.47855dff.chunk.js.map": "/IMS-Inventory-Management-System-/static/js/787.47855dff.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f78c5376.css",
-    "static/js/main.6bc4e699.js"
+    "static/css/main.06077acd.css",
+    "static/js/main.1db3c962.js"
   ]
 }
